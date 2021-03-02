@@ -1,0 +1,64 @@
+var readlineSync = require("readline-sync");
+
+
+var score = 0;
+
+var userName = readlineSync.question("What's your name?");
+console.log("Welcome " + userName + " to Do You Know ME?" );
+
+
+
+function play (question, answer) {
+  var userAnswer = readlineSync.question(question);
+
+  if (userAnswer.toUpperCase() === answer.toUpperCase()) {
+    console.log("right!");
+    score = score + 1;
+
+  } else {
+    console.log("wrong!"); 
+
+  }
+  console.log("current score :", score);
+  console.log("----------------");
+
+}
+
+
+var questions = [{
+  question: "Where do I live? ",
+  answer: "katni",
+}, {
+  question: "My favourite superhero would be? ",
+  answer: "shaktimaan",
+},{
+  question: "Where do I work? ",
+  answer: "freelance",
+}];
+
+for (var i = 0; i < questions.length; i++){
+  var currentQuestion = questions[i];
+  play (currentQuestion.question, currentQuestion.answer);
+
+}
+
+console.log("Hurray! You scored : ", score);
+
+var highScores = [{
+
+  name: "Anshuman",
+  score:3,
+},
+
+{
+  name:"Deepanshu",
+  score:2,
+
+}]
+
+console.log(highScores[0].name);
+console.log(highScores[0].score);
+
+console.log(highScores[1].name);
+console.log(highScores[1].score);
+
